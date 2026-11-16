@@ -1,0 +1,27 @@
+name: Java Mini Project Tests
+on:
+  push:
+    branches: [java-swing-mini-projects]
+  pull_request:
+    branches: [java-swing-mini-projects]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Test MessMate
+        run: |
+          cd MessMate
+          mkdir -p out
+          javac -d out src/MessMate.java tests/MessMateTest.java
+          java -Djava.awt.headless=true -cp out MessMateTest
+      - name: Test TripWise
+        run: |
+          cd TripWise
+          mkdir -p out
+          javac -d out src/TripWise.java tests/TripWiseTest.java
+          java -Djava.awt.headless=true -cp out TripWiseTest
