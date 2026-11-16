@@ -4,6 +4,7 @@ import java.awt.*;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.util.List;
 
 public class MessMate extends JFrame {
     private static final int OPEN = 11 * 60 + 30, CLOSE = 14 * 60, SERVICE = 10, STEP = 5;
